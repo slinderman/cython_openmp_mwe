@@ -32,7 +32,7 @@ cpdef sum_anti_diag(floating[:,:,::1] A):
     assert A.shape[2] == K
 
     # Initialize output
-    cdef double[:, ::1] B = np.zeros((N, 2*K-1))
+    cdef floating[:, ::1] B = np.zeros((N, 2*K-1), dtype=A.dtype)
 
     # Parallel loop over N
     with nogil:
