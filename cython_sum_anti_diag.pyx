@@ -34,7 +34,7 @@ cpdef sum_anti_diag(floating[:,:,::1] A):
     # Initialize output
     cdef double[:, ::1] B = np.zeros((N, 2*K-1))
 
-    # Parallel loop over N
+    # Parallel loop over N. Uses OpenMP under the hood.
     with nogil:
         for n in prange(N):
             # First K entries
