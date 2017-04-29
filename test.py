@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import numpy as np
 from cython_sum_anti_diag import sum_anti_diag
 
