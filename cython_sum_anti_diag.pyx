@@ -25,7 +25,7 @@ cpdef sum_anti_diag(floating[:,:,::1] A):
                and   B[n,K+k-1] = sum_{j=0}^{K-k-1} A[n,k+j,K-1-j] for k < K
     """
 
-    cdef int n,j,k,k2
+    cdef int n,j,k
     cdef int N, K
     N = A.shape[0]
     K = A.shape[1]
