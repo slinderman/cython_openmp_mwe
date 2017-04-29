@@ -30,8 +30,8 @@ if __name__ == "__main__":
     assert np.allclose(B_manual, B_cython)
 
     # Harder test
-    N = 10
-    K = 3
+    N = 100
+    K = 10
     A = np.random.randn(N, K, K)
 
     B_manual = manual_sum_anti_diag(A)
