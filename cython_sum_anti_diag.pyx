@@ -20,7 +20,7 @@ cpdef sum_anti_diag(double[:,:,::1] A):
     :param A:  3D array of shape (N, K, K)
     :return B: 2D output array of shape (N, 2K-1)
                where B[n,k] = sum_{j=0}^k A[n,k-j,j] for k <= K
-               and   B[n,K+k-1] = sum_{j=0}^{K-k} A[n,k+j,K-1-j] for k < K
+               and   B[n,K+k-1] = sum_{j=0}^{K-k-1} A[n,k+j,K-1-j] for k < K
     """
 
     cdef int n,j,k,k2
