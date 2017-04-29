@@ -24,7 +24,6 @@ cpdef sum_anti_diag(double[:,:,::1] A):
     """
 
     cdef int n,j,k,k2
-
     cdef int N, K
     N = A.shape[0]
     K = A.shape[1]
