@@ -1,6 +1,7 @@
 # Cythonized version of sum anti diag
 #
-# distutils: extra_compile_args = -O3
+# distutils: extra_compile_args = -O3 -fopenmp
+# distutils: extra_link_args = -fopenmp
 # cython: wraparound=False
 # cython: boundscheck=False
 # cython: nonecheck=False
@@ -10,9 +11,10 @@
 import numpy as np
 cimport numpy as np
 
+from cython cimport floating
 from cython.parallel import prange
 
-cpdef sum_anti_diag(double[:,:,::1] A):
+cpdef sum_anti_diag(floating[:,:,::1] A):
     """
     Sum the anti-diagonal of a stack of square matrices.
     This is a special case of Ton's code.
@@ -46,4 +48,4 @@ cpdef sum_anti_diag(double[:,:,::1] A):
                 for j in range(K-k):
                     B[n,K+k-1] += A[n,k+j,K-1-j]
 
-    return np.array(B)
+    return np.asarray(B)
