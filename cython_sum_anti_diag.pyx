@@ -41,7 +41,7 @@ cpdef sum_anti_diag(double[:,:,::1] A):
                     B[n,k] += A[n,k-j,j]
 
             # Second K-1 entries
-            # e.g. A[1,K] + A[2,K-1] + A[3, K-2] + ... + A[K,1]
+            # e.g. A[1,K] + A[2,K-1] + A[3, K-2] + ... + A[K-1,1]
             for k in range(1,K):
                 for j in range(K-k):
                     B[n,K+k-1] += A[n,k+j,K-1-j]
